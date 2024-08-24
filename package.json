@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.4",
+    "@apollo/federation": "^0.38.1",
+    "@vue/server-renderer": "^3.3.4",
     "core-js": "^3.25.3",
-    "nuxt": "^2.15.8",
-    "vue": "^2.7.10",
-    "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "graphql": "^16.9.0",
+    "nuxt": "^3.13.0",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",

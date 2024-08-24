@@ -1,20 +1,27 @@
 <template>
   <div>
-    <h1>Article Details</h1>
-    <p>Article ID: {{ id }}</p>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
   </div>
 </template>
 
 <script>
-export default {
-  async asyncData({ params }) {
-    return {
-      id: params.id,
-    };
-  },
-};
-</script>
+import gql from 'graphql-tag'
 
-<style scoped>
-/* Ваши стили для страницы */
-</style>
+export default {
+  async asyncData({ app, params }) {
+    const { data } = await app.apolloProvider.defaultClient.query({
+      query: gql`
+        query($id: ID!) {
+          article(id: $id) {
+            title
+            content
+          }
+        }
+      `,
+      variables: { id: params.id }
+    })
+    return { article: data.article }
+  }
+}
+</script>
