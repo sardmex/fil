@@ -24,7 +24,14 @@
       }
     }
   `;
-  
+  import apollo from "@/apollo/asrp-media";
+
+  import {QUERY_ARTICLES} from "@/apollo/asrp-media/queries";
+
+const {data: {articles: {Articles}}} = await apollo.query({
+        query: QUERY_ARTICLES
+      });
+      
   onMounted(async () => {
     const { apollo } = useApollo();
     const { data } = await apollo.query({ query });
